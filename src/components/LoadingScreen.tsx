@@ -267,7 +267,7 @@ const LoadingScreen = ({ name, onComplete }: Props) => {
             Target: {name}
           </div>
 
-          <div ref={scrollRef} className="space-y-1 mb-6 min-h-[200px] max-h-[280px] overflow-y-auto pr-1">
+          <div ref={scrollRef} className="space-y-1 mb-6 min-h-[200px] max-h-[280px] overflow-y-auto scrollbar-hide pr-1">
             {completedLines.map((line, i) => (
               <div
                 key={i}
