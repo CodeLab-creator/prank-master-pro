@@ -17,7 +17,7 @@ const RevealScreen = ({ onRestart }: Props) => {
     try {
       await navigator.clipboard.writeText(shareUrl);
       alert("Link copied to clipboard!");
-    }
+    } catch {}
   };
 
   return (
