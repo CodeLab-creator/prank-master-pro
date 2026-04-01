@@ -7,13 +7,17 @@ interface Props {
 const RevealScreen = ({ onRestart }: Props) => {
   const shareUrl = window.location.href;
 
-  const handleShare = () => {
-    if (navigator.share) {
-      navigator.share({ title: "SecureX System Scan", url: shareUrl });
-    } else {
-      navigator.clipboard.writeText(shareUrl);
+  const handleShare = async () => {
+    try {
+      if (navigator.share) {
+        await navigator.share({ title: "SecureX System Scan", url: shareUrl });
+        return;
+      }
+    } catch {}
+    try {
+      await navigator.clipboard.writeText(shareUrl);
       alert("Link copied to clipboard!");
-    }
+    } catch {}
   };
 
   return (
