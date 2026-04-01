@@ -61,6 +61,24 @@ const LoadingScreen = ({ name, onComplete }: Props) => {
       exit={{ opacity: 0 }}
       className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4"
     >
+      {/* Fake webcam indicator */}
+      {currentStep >= 1 && (
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          className="fixed top-4 right-4 flex items-center gap-2 bg-card/90 border border-destructive/50 rounded px-3 py-2 backdrop-blur z-50"
+        >
+          <span className="relative flex h-3 w-3">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-destructive opacity-75" />
+            <span className="relative inline-flex rounded-full h-3 w-3 bg-destructive" />
+          </span>
+          <span className="text-destructive text-xs font-bold uppercase tracking-wider"
+                style={{ fontFamily: "var(--font-display)" }}>
+            CAM ACTIVE
+          </span>
+        </motion.div>
+      )}
+
       <div className="max-w-lg w-full">
         <div className="border border-border rounded p-6 bg-card/80 backdrop-blur scanline relative overflow-hidden">
           <div className="text-muted-foreground text-xs mb-4 tracking-widest uppercase"
