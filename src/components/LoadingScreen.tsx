@@ -145,6 +145,10 @@ const LoadingScreen = ({ name, onComplete }: Props) => {
 
         if (stage.warning) {
           setShowWarning(true);
+          // Vibrate on mobile during warning
+          if (navigator.vibrate) {
+            navigator.vibrate([100, 50, 100, 50, 200, 100, 300]);
+          }
         }
 
         if (stage.pause) {
